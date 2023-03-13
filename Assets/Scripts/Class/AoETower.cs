@@ -3,10 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AoETower : MonoBehaviour
+public class AoETower : TowerScript
 {
     public float cooldownTime;
-    public float health;
     public GameObject AoEEffect;
     private float timePassed;
 
@@ -19,6 +18,8 @@ public class AoETower : MonoBehaviour
     {
         timePassed = 0f;
         timeAttackIsActive = 0f;
+
+        health = maxHP;
 
         AoEEffect.SetActive(false);
     }
@@ -46,14 +47,22 @@ public class AoETower : MonoBehaviour
                 AoEEffect.SetActive(false);
             }
         }
-
     }
-
-    void Die()
+   /* private void OnCollisionEnter (Collision collision)
     {
-        if (health <= 0f)
+        if (collision.gameObject.tag == "Explosion")
         {
-            Destroy(this.gameObject);
+            health--;
+            Debug.Log("beans");
+        }
+    }*/
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Explosion")
+        {
+            health--;
+            //Debug.Log("beans");
         }
     }
 }
