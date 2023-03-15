@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Explosion
   - TowerAoE
+  - TowerProjectile
+  - Wall
+  - Enemy
+  - Goal
   layers:
   - Default
   - TransparentFX

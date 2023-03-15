@@ -6,6 +6,7 @@ public class NormalEnemy : EnemyScript
 {
     //The node that we are currently following. Set it at edit time to determine the first node.
     public NodeScript nextNode;
+    public GameObject startNode;
 
     //A reference to the contorller so we can call the "move" function
     public CharacterController controller;
@@ -19,6 +20,10 @@ public class NormalEnemy : EnemyScript
         health = maxHP;
 
         controller = GetComponent<CharacterController>();
+
+        startNode = GameObject.Find("StartNode");
+
+        nextNode = startNode.GetComponent<NodeScript>();
     }
 
     // Update is called once per frame
@@ -51,10 +56,15 @@ public class NormalEnemy : EnemyScript
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "TowerAoE")
+        if (other.gameObject.tag == "TowerAoE" || other.gameObject.tag == "TowerProjectile")
         {
             health--;
             //Debug.Log("beans");
+        }
+
+        if (other.gameObject.tag == "Goal")
+        {
+            Die();
         }
     }
 }

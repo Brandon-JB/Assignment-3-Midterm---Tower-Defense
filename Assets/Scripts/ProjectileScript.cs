@@ -11,4 +11,13 @@ public class ProjectileScript : MonoBehaviour
     {
         rb.velocity = -transform.right * speed;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Wall" || other.gameObject.tag == "Enemy")
+        {
+            Destroy(this.gameObject);
+            //Debug.Log("beans");
+        }
+    }
 }

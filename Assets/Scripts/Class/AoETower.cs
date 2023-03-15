@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +10,7 @@ public class AoETower : TowerScript
 
     public float attackActiveTime;
     private float timeAttackIsActive;
+    public Animator animator;
 
 
     // Start is called before the first frame update
@@ -38,13 +38,14 @@ public class AoETower : TowerScript
     {
         if (timePassed >= cooldownTime)
         {
-            AoEEffect.SetActive(true);
+            animator.Play("TowerAoE");
             timeAttackIsActive += Time.deltaTime;
+
             if (timeAttackIsActive >= attackActiveTime)
             {
                 timePassed = 0f;
                 timeAttackIsActive = 0f;
-                AoEEffect.SetActive(false);
+                animator.Play("TowerRetract");
             }
         }
     }

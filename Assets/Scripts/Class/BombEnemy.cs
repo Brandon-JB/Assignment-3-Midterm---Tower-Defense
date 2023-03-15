@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +12,7 @@ public class BombEnemy : EnemyScript
 
     //The node that we are currently following. Set it at edit time to determine the first node.
     public NodeScript nextNode;
+    public GameObject startNode;
 
     //A reference to the contorller so we can call the "move" function
     public CharacterController controller;
@@ -26,7 +26,11 @@ public class BombEnemy : EnemyScript
         health = maxHP;
 
         controller = GetComponent<CharacterController>();
+        damageArea.SetActive(false);
 
+        startNode = GameObject.Find("StartNode");
+
+        nextNode = startNode.GetComponent<NodeScript>();
     }
 
     // Update is called once per frame
@@ -67,10 +71,15 @@ public class BombEnemy : EnemyScript
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "TowerAoE")
+        if (other.gameObject.tag == "TowerAoE" || other.gameObject.tag == "TowerProjectile")
         {
             health--;
             //Debug.Log("beans");
+        }
+
+        if (other.gameObject.tag == "Goal")
+        {
+            Die();
         }
     }
 }
