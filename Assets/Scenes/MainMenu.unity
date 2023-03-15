@@ -916,14 +916,15 @@ MonoBehaviour:
     on Pixabay.com
 
 
-    Code: The game was entirely coded by Brandon Bourdage
+    Code: The game was almost entirely coded by Brandon Bourdage.
+    Movement code was done by Jose Gonzalez
 
 
-    Music:
-    Mischief Makers on Incompetech.com
+    Music: Mischief Makers on Incompetech.com
 
 
-    Sound: All sound was found on freesound.org'
+    Sound:
+    All sound was found on freesound.org'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

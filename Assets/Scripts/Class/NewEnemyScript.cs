@@ -13,9 +13,13 @@ public class NewEnemyScript : EnemyScript
     public float speed;
     //The minimum distance the unit must be from nextNode to move to the next one
     public float minDistance;
+
+    public ParticleSystem spawnParticles;
     void Start()
     {
         health = maxHP;
+
+        //Instantiate(spawnParticles, transform.position, Quaternion.identity);
 
         controller = GetComponent<CharacterController>();
     }
