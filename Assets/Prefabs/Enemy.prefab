@@ -136,4 +136,4 @@ MonoBehaviour:
   startNode: {fileID: 0}
   controller: {fileID: 0}
   speed: 3
-  minDistance: 0.01
+  minDistance: 0.1

@@ -143,7 +143,7 @@ MonoBehaviour:
   startNode: {fileID: 0}
   controller: {fileID: 3136292022131345402}
   speed: 1.5
-  minDistance: 0.01
+  minDistance: 0.1
 --- !u!95 &3136292022131345407
 Animator:
   serializedVersion: 4
